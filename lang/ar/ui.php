@@ -1,0 +1,61 @@
+<?php
+
+return [
+    'app_name' => 'سوق حجز مواعيد الأطباء',
+
+    'save' => 'حفظ',
+    'saved' => 'تم الحفظ',
+    'create' => 'إنشاء',
+    'edit' => 'تعديل',
+    'search' => 'بحث',
+    'book' => 'حجز',
+    'availability' => 'التوفر',
+    'select_date' => 'اختر التاريخ',
+    'available_slots' => 'المواعيد المتاحة',
+    'confirm_booking' => 'تأكيد الحجز',
+    'booking_confirmed' => 'تم تأكيد الحجز',
+    'language' => 'اللغة',
+
+    'find_a_doctor' => 'ابحث عن طبيب',
+    'city' => 'المدينة',
+    'specialty' => 'التخصص',
+    'clinic' => 'العيادة',
+    'see_availability' => 'عرض التوفر',
+
+    'admin' => 'المدير',
+    'clinics' => 'العيادات',
+    'doctors' => 'الأطباء',
+    'name' => 'الاسم',
+    'slug' => 'المعرف',
+    'address' => 'العنوان',
+    'phone' => 'الهاتف',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+
+    'reason_optional' => 'السبب (اختياري)',
+    'book_now' => 'احجز الآن',
+
+    'appointments' => 'المواعيد',
+    'status' => 'الحالة',
+    'completed' => 'مكتمل',
+    'no_show' => 'لم يحضر',
+
+    // Doctor Profile
+    'professional_profile' => 'الملف المهني',
+    'manage_profile_info' => 'إدارة معلوماتك العامة ورسوم الاستشارة ومدة الجلسات.',
+    'account_information' => 'معلومات الحساب',
+    'contact_support_to_change' => 'اتصل بالدعم لتغيير هذه التفاصيل.',
+    'doctor_name' => 'اسم الطبيب',
+    'email_address' => 'عنوان البريد الإلكتروني',
+    'professional_bio' => 'السيرة المهنية',
+    'bio_placeholder' => 'صف خبرتك وتخصصاتك ونهجك الطبي...',
+    'bio_help_text' => 'سيتم عرض هذا على صفحة الحجز العامة الخاصة بك.',
+    'consultation_fee' => 'رسوم الاستشارة (دج)',
+    'session_duration' => 'مدة الجلسة',
+    'minutes' => 'دقائق',
+    'hour' => 'ساعة',
+    'changes_saved_successfully' => 'تم حفظ التغييرات بنجاح!',
+    'save_changes' => 'حفظ التغييرات',
+    'saving' => 'جاري الحفظ...',
+    'edit_profile' => 'تعديل الملف الشخصي',
+];
