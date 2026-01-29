@@ -331,14 +331,21 @@ export default function Sidebar() {
             />
 
             {!collapsedSections.dashboard && (
-              <div className="space-y-1">
+<div className="space-y-1">
                 <NavItem
                   href={getDashboardRoute()}
                   icon={LayoutDashboard}
                   label={t("Dashboard") || "Tableau de bord"}
-                  active={isActive("dashboard") || isActive("doctor.dashboard") || isActive("laboratory.dashboard") || isActive("imaging.dashboard")}
+                  // ✅ Updated: Added 'patient.dashboard' to the active check
+                  active={
+                      isActive("dashboard") ||
+                      isActive("doctor.dashboard") ||
+                      isActive("laboratory.dashboard") ||
+                      isActive("imaging.dashboard") ||
+                      isActive("my-health.patient.dashboard")
+                  }
                 />
-              </div>
+            </div>
             )}
 
             {/* Patient Section */}

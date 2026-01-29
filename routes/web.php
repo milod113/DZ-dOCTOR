@@ -294,9 +294,9 @@ Route::prefix('doctor')
 // ======================================================================
 
 Route::middleware(['auth', 'verified'])->prefix('my-health')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('patient.dashboard');
 
-
-Route::get('/my-qr-code', [QrCodeController::class, 'show'])->name('patient.qr-code');
+    Route::get('/my-qr-code', [QrCodeController::class, 'show'])->name('patient.qr-code');
     Route::get('/analyses', [HealthRecordController::class, 'index'])->name('patient.analyses.index');
     Route::get('/analyses/{analysisRequest}/download', [HealthRecordController::class, 'download'])->name('patient.analyses.download');
     Route::get('/imaging-requests', [PatientImagingRequestController::class, 'index'])->name('patient.imaging.requests.index');
