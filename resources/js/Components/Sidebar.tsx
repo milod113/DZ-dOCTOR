@@ -26,6 +26,7 @@ import {
   FlaskConical,
   ClipboardList,
   Scan,
+  QrCode,
   ChevronDown,
   ChevronUp,
   CreditCard,
@@ -357,6 +358,12 @@ export default function Sidebar() {
   label="Mes Rendez-vous"
   active={isActive("patient.appointments.index")} // ✅ UPDATE THIS LINE
 />
+<NavItem
+          href={route("patient.qr-code")}
+          icon={QrCode}
+          label="Mon QR Code"
+          active={isActive("patient.qr-code")}
+        />
 <NavItem
   href={route("patient.family.index")}
   icon={Users}

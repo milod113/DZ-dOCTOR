@@ -14,6 +14,7 @@ import {
     Filter,
     Clock,
     Phone,
+    QrCode,
     MoreVertical,
     Download,
     Eye,
@@ -200,6 +201,13 @@ export default function AppointmentIndex({ appointments, filters, slots = [], do
                             </div>
                         </div>
                     </div>
+                    <Link
+        href={route('doctor.secretary.scan')}
+        className="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-gray-800 border-2 border-purple-100 dark:border-purple-900 text-purple-700 dark:text-purple-300 rounded-xl font-bold hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all shadow-sm hover:shadow-md"
+    >
+        <QrCode className="w-4 h-4" />
+        Scan Check-In
+    </Link>
                     <div className="flex flex-wrap gap-3">
                         <button
                             onClick={() => setIsRemindersOpen(true)}

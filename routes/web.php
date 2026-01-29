@@ -40,6 +40,8 @@ use App\Http\Controllers\Doctor\SlotController;
 use App\Http\Controllers\Doctor\SlotGeneratorController;
 use App\Http\Controllers\Doctor\AnalysisRequestController;
 
+use App\Http\Controllers\Doctor\Secretary\CheckInController;
+
 // --- Patient Controllers ---
 // ✅ FIX 1: Renamed to avoid conflict
 use App\Http\Controllers\Patient\ImagingRequestController as PatientImagingRequestController;
@@ -47,8 +49,13 @@ use App\Http\Controllers\Patient\HealthRecordController;
 use App\Http\Controllers\Patient\AppointmentController as PatientAppointmentController;
 use App\Http\Controllers\Patient\FamilyController;
 
+use App\Http\Controllers\Patient\DashboardController; // Don't forget to import this at the top!
+use App\Http\Controllers\Patient\QrCodeController; // We will create this
+
 
 // --- Laboratory Controllers ---
+
+
 use App\Http\Controllers\Laboratory\AnalysisRequestController as LaboratoryAnalysisRequestController;
 use App\Http\Controllers\Laboratory\SetupController as LaboratorySetupController;
 use App\Http\Controllers\Laboratory\VerificationController as LaboratoryVerificationController;
@@ -270,8 +277,14 @@ Route::prefix('doctor')
             Route::get('/appointments/{appointment}', [DoctorAppointmentController::class, 'show'])->name('appointments.show');
             Route::patch('/appointments/{appointment}/status', [DoctorAppointmentController::class, 'updateStatus'])->name('appointments.update-status');
             Route::post('/appointments/{appointment}/reschedule', [DoctorAppointmentController::class, 'reschedule'])->name('appointments.reschedule');
-
             Route::get('/appointments/upcoming', [DoctorAppointmentController::class, 'fetchUpcoming'])->name('appointments.upcoming');
+
+            // The Scanner Page
+            Route::get('/scan', [CheckInController::class, 'create'])->name('secretary.scan');
+
+             // The Action (When scan happens)
+            Route::post('/check-in', [CheckInController::class, 'store'])->name('secretary.checkin');
+
         });
     });
 
@@ -281,6 +294,9 @@ Route::prefix('doctor')
 // ======================================================================
 
 Route::middleware(['auth', 'verified'])->prefix('my-health')->group(function () {
+
+
+Route::get('/my-qr-code', [QrCodeController::class, 'show'])->name('patient.qr-code');
     Route::get('/analyses', [HealthRecordController::class, 'index'])->name('patient.analyses.index');
     Route::get('/analyses/{analysisRequest}/download', [HealthRecordController::class, 'download'])->name('patient.analyses.download');
     Route::get('/imaging-requests', [PatientImagingRequestController::class, 'index'])->name('patient.imaging.requests.index');

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\ImagingCenter;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class User extends Authenticatable
@@ -63,4 +64,15 @@ public function familyMembers()
 {
     return $this->hasMany(FamilyMember::class);
 }
+
+protected static function booted()
+    {
+        static::creating(function ($user) {
+            // Automatically generate a UUID when a new user is created
+            if (empty($user->uuid)) {
+                $user->uuid = (string) Str::uuid();
+            }
+        });
+    }
+
 }
